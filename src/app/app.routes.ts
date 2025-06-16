@@ -10,6 +10,10 @@ export const routes: Routes = [
             {
                 path:'',
                 loadComponent: () => import('./Domains/principal/principal.component').then(m => m.PrincipalComponent)
+            },
+            {
+                path:'log',
+                loadComponent: () => import('./Domains/shared/components/auth/auth.component').then (m => m.AuthComponent)
             }
 
         ]

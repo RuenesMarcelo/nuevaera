@@ -2260,10 +2260,3 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
-
-
-.custom-img {
-  width: 100px;     /* o el tamaño que necesites */
-  height: 100px;    /* fuerza la altura para que todas sean iguales */
-  object-fit: contain; /* o cover, según si quieres que recorte o que ajuste */
-}

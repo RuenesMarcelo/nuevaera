@@ -1,27 +1,27 @@
 <div class="content">
-                <div class="container">
-                    <div class="row g-0">
-                        <div class="col-lg-3 col-md-6"
-                            *ngFor="let clave of objectKeys(servicios)">
-                            <div class="service-item h-100 d-flex flex-column">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-3 col-md-6"
+                *ngFor="let services_info of services_info">
+                <div class="service-item h-100 d-flex flex-column">
 
-                                <div class="service-item-icon">
+                    <div class="service-item-icon">
 
-                                    <img alt="icono"
-                                        class="img-fluid custom-img"
-                                        src="{{ servicios[clave].foto }}"
-                                        alt>
-                                </div>
-                                <div
-                                    class="service-item-content mt-auto">
-                                    <h3 style="margin-bottom: 10px;"
-                                        class="service-heading">{{
-                                        servicios[clave].titulo }}</h3>
-                                    <p>{{ servicios[clave].descripcion }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <img alt="icono"
+                            class="img-fluid custom-img"
+                            src="{{services_info.foto}}"
+                            alt>
+                    </div>
+                    <div
+                        class="service-item-content mt-auto">
+                        <h3 style="margin-bottom: 10px;"
+                            class="service-heading">{{
+                            services_info.titulo }}</h3>
+                        <p>{{ services_info.descripcion }}
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
