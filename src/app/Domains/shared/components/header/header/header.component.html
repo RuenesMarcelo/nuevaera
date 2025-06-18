@@ -28,10 +28,20 @@
                 <li><a href="#">Insumos agricolas</a></li>
               </ul>
             </li>
-            <li><a href="contact.html">Contactanos</a></li>
-            <li><a routerLink="/log"
-                routerLinkActive="underline"
-                class="block hover:underline">Inicia sesión</a></li>
+            <li><a href="contact.html">Contáctanos</a></li>
+            <div>
+              <li *ngIf="!authService.itsautenticated()" class="nav-item"><a
+                  routerLink="/log"
+                  routerLinkActive="underline"
+                  class="block hover:underline">Inicia sesión</a></li>
+                  
+            </div>
+            <div>
+              <li *ngIf="authService.itsautenticated()"><a routerLink="/"
+                  routerLinkActive="underline"
+                  class="block hover:underline">Perfil</a></li>
+
+            </div>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
