@@ -105,6 +105,7 @@
               "src/assets/vendor/aos/aos.css",
               "src/assets/vendor/swiper/swiper-bundle.min.css",
               "src/assets/vendor/glightbox/css/glightbox.min.css",
+              "node_modules/aos/dist/aos.css",
               "src/styles.css"              
             ],
             "scripts": [

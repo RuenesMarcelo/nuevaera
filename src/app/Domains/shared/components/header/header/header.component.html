@@ -20,7 +20,8 @@
                 routerLink="/"
                 routerLinkActive="underline">Inicio</a></li>
             <li><a href="about.html" class="active">Nuestros servicios</a></li>
-            <li class="dropdown"><a href="#"><span>Que estas buscando?</span> <i
+            <li class="dropdown"><a routerLink="/list"
+                routerLinkActive="underline"><span>Que estas buscando?</span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="#">Material de laboratorio</a></li>
@@ -34,7 +35,7 @@
                   routerLink="/log"
                   routerLinkActive="underline"
                   class="block hover:underline">Inicia sesión</a></li>
-                  
+
             </div>
             <div>
               <li *ngIf="authService.itsautenticated()"><a routerLink="/"
