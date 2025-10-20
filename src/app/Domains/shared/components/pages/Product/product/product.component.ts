@@ -9,6 +9,8 @@ import { Product } from '../../../../models/product';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
+
+  
   
   @Input({required: true}) product!: Product;
 }

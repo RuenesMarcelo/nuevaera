@@ -14,7 +14,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #116530; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #0788a8;; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -1484,7 +1484,7 @@ section,
 --------------------------------------------------------------*/
 .blog-posts-2 article {
   background-color: var(--surface-color);
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
   transition: 0.3s;
   border-radius: 8px;
   overflow: hidden;
@@ -1509,7 +1509,7 @@ section,
 
 .blog-posts-2 .meta {
   position: relative;
-  margin-top: -20px;
+  margin-top: -10px;
   padding: 0 30px;
 }
 

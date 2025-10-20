@@ -4,5 +4,6 @@ export interface Product{
     nombre: String;
     precio: DoubleRange;
     stock: number;
-    Categoria: Category
+    categoria: Category;
+    imagen: String;
 }
