@@ -1,0 +1,7 @@
+.uniform-img {
+  height: 180px;           /* Altura fija para todas las imágenes */
+  width: 40%;             /* Que ocupe todo el ancho del contenedor */
+  object-fit: cover;       /* Recorta la imagen sin deformarla */
+  object-position: 50%; /* Centra el recorte */
+  
+}

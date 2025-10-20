@@ -10,7 +10,7 @@
 
         <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="assets/img/logo.png" alt="AgriCulture">
+          <img src="assets/img/logo_qne.JPG">
           <!-- <h1 class="sitename">AgriCulture</h1>  -->
         </a>
 
@@ -24,9 +24,13 @@
                 routerLinkActive="underline"><span>Que estas buscando?</span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="#">Material de laboratorio</a></li>
-                <li><a href="#">Quimicos y reactivos</a></li>
-                <li><a href="#">Insumos agricolas</a></li>
+                @for (category of categories(); track category) {
+                <li>
+                  <a routerLink="/"
+                    [queryParams]="{category_id: category.id_categoria}">{{
+                    category.nombre }}</a>
+                </li>
+                }
               </ul>
             </li>
             <li><a href="contact.html">Contáctanos</a></li>

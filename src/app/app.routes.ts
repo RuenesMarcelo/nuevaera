@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './Domains/shared/components/layout/layout.component';
 import { AuthComponent } from './Domains/shared/components/auth/auth.component';
+import { ListComponent } from './Domains/shared/components/pages/Product/list/list.component';
 
 export const routes: Routes = [
     {
@@ -18,7 +19,7 @@ export const routes: Routes = [
             },
             {
                 path: 'list',
-                loadComponent: () => import ('./Domains/shared/components/pages/Product/list/list.component').then (m => m.ListComponent)
+                loadComponent: () => import ('./Domains/shared/components/pages/Product/list/list.component').then (m => m.ListComponent)                
             }
 
         ]

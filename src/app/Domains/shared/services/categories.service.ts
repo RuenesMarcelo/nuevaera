@@ -7,7 +7,7 @@ import { Category } from '../models/category';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesServicesService {
+export class CategoriesService {
 
   private apiUrl = 'http://localhost:8081/api/categoria'; // ajusta si es necesario
 
