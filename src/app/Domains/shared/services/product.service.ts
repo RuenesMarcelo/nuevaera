@@ -24,14 +24,9 @@ export class ProductService {
     return this.http.get<Product>(`${this.apiUrl}/${id_producto}`);
   }
 
-  getProductsByCategory(category_id?: string){
-    const url = new URL(`http://localhost:8081/api/product/categoria`);
-    if(category_id){
-      url.searchParams.set('idCategory', category_id);
-    }
-
-    return this.http.get<Product[]>(url.toString());
-  }
+  getProductsByCategory(category_id?: string) {
+  return this.http.get<Product[]>(`${this.apiUrl}/categoria/${category_id}`);
+}
   
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.apiUrl, product);

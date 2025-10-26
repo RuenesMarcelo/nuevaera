@@ -17,15 +17,17 @@ import { Product } from '../../../models/product';
 export class HeaderComponent {
 
   
+
+  
   categories= signal<Category[]>([]);
   products = signal<Product[]>([]);
   private CategoriesService = inject(CategoriesService);
   private ProductService = inject(ProductService);
-  @Input() category_id?: string; 
 
   ngOnInit(): void {    
-    this.getProductsByCategory();
     this.getCategories();
+
+    
   }
 
   constructor(public authService: AuthService) {
@@ -43,16 +45,5 @@ export class HeaderComponent {
     })
   }
 
-  private getProductsByCategory(){
-    this.ProductService.getProductsByCategory(this.category_id)
-    .subscribe({
-      next: (data) => {
-        this.products.set(data);
-      },
-      error:() => {
-
-      }
-    })
-  }
 
 }

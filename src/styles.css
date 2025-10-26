@@ -2260,3 +2260,11 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+/*trancision de nuestros servicios a div services con las tarjetas de servicios*/
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* ajusta según el alto de tu header */
+}
+

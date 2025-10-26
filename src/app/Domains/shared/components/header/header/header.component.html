@@ -1,59 +1,71 @@
-
 <!-- Main CSS File -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
 
-<div>
-  <nav>
-    <header id="header" header
-      class="header d-flex align-items-center position-relative">
-      <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="assets/img/logo_qne.JPG">
-          <!-- <h1 class="sitename">AgriCulture</h1>  -->
-        </a>
+<div class="index-page">
+  <header id="header"
+    class="header d-flex align-items-center position-relative">
+    <div
+      class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a
-                routerLink="/"
-                routerLinkActive="underline">Inicio</a></li>
-            <li><a href="about.html" class="active">Nuestros servicios</a></li>
-            <li class="dropdown"><a routerLink="/list"
-                routerLinkActive="underline"><span>Que estas buscando?</span> <i
-                  class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                @for (category of categories(); track category) {
-                <li>
-                  <a routerLink="/"
-                    [queryParams]="{category_id: category.id_categoria}">{{
-                    category.nombre }}</a>
-                </li>
-                }
-              </ul>
+      <a routerLink="/" class="logo d-flex align-items-center">
+        <img src="assets/img/logo_qne.JPG">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li>
+            <a routerLink="/" routerLinkActive="underline">Inicio</a></li>
+          <a [routerLink]="['/']" fragment="services"
+            routerLinkActive="underline">
+            Nuestros servicios
+          </a>
+          <li class="dropdown">
+            <a routerLink="/list" routerLinkActive="underline">
+              <span>Que estas buscando?</span>
+              <i class="bi bi-chevron-down toggle-dropdown"></i>
+            </a>
+            <ul>
+              @for (category of categories(); track category) {
+                <a [routerLink]="['/list']"
+                  [queryParams]="{ category_id: category.idCategoria }">
+                  {{ category.nombre }}
+                </a>
+              }
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/']" fragment="contactus"
+              routerLinkActive="underline">
+              Contactanos
+            </a>
+          </li>
+          <div>
+            <li *ngIf="!authService.itsautenticated()" class="nav-item">
+              <a routerLink="/log" routerLinkActive="underline"
+                class="d-block text-decoration-underline-hover">
+                Inicia sesión
+              </a>
             </li>
-            <li><a href="contact.html">Contáctanos</a></li>
-            <div>
-              <li *ngIf="!authService.itsautenticated()" class="nav-item"><a
-                  routerLink="/log"
-                  routerLinkActive="underline"
-                  class="block hover:underline">Inicia sesión</a></li>
-
-            </div>
-            <div>
-              <li *ngIf="authService.itsautenticated()"><a routerLink="/"
-                  routerLinkActive="underline"
-                  class="block hover:underline">Perfil</a></li>
-
-            </div>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-      </div>
-    </header>
-
-  </nav>
-
+          </div>
+          <div>
+            <li *ngIf="authService.itsautenticated()">
+              <a routerLink="/" routerLinkActive="underline"
+                class="d-block text-decoration-underline-hover">
+                Perfil
+              </a>
+            </li>
+          </div>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
 </div>
