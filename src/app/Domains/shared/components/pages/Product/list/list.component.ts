@@ -1,51 +1,88 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { ProductComponent } from "../product/product.component";
 import { Product } from '../../../../models/product';
 import { Category } from '../../../../models/category';
 import { ProductService } from '../../../../services/product.service';
 import { CategoriesService } from '../../../../services/categories.service';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent,],
+  imports: [ProductComponent, FormsModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
 export class ListComponent {
 
+
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
   private productService = inject(ProductService);
+  private route = inject(ActivatedRoute);
   private categoryService = inject(CategoriesService);
+  filteredProducts = signal<Product[]>([]);
+  searchTerm = ''; // 🟢 texto de búsqueda
 
 
-  
+
   ngOnInit(): void {
-    this.getProducts();
-    this.getCategories();
+
+    // 👇 aquí escuchamos los cambios del parámetro category_id
+    this.route.queryParams.subscribe(params => {
+      const categoryId = params['category_id'];
+      if (categoryId) {
+        this.getProductsByCategory(categoryId);
+      } else {
+        this.getAllProducts();
+      }
+    });
   }
 
-  private getProducts() {
-    this.productService.getAll()
-      .subscribe({
-        next: (products) => {
-          this.products.set(products);
-        },
-        error: () => {
+  ngOnChanges(changes: SimpleChanges): void {
 
-        }
-      })
+
   }
 
-  private getCategories() {
-    this.categoryService.getAll()
-      .subscribe({
-        next: (categories) => {
-          this.categories.set(categories);
-        },
-        error: () => {
-        }
-      });
+
+  private getProductsByCategory(categoryId: string) {
+  this.productService.getProductsByCategory(categoryId).subscribe({
+    next: (products) => {
+      this.products.set(products);
+      this.applyFilters(); // 🟢 Aplica el filtro al cargar productos
+    },
+    error: (err) => console.error(err)
+  });
+}
+
+  private getAllProducts() {
+    this.productService.getAll().subscribe({
+      next: (products) => {
+        this.products.set(products);
+        this.applyFilters(); // 🟢 Aplica el filtro al cargar productos
+      },
+      error: (err) => console.error(err)
+    });
   }
+
+  onSearchChange() {
+    this.applyFilters();
+  }
+
+
+  private applyFilters() {
+    const term = this.searchTerm.toLowerCase().trim();
+
+    let filtered = this.products();
+
+    // Si hay texto, filtramos por nombre
+    if (term) {
+      filtered = filtered.filter(p =>
+        p.nombre.toLowerCase().includes(term)
+      );
+    }
+
+    this.filteredProducts.set(filtered);
+    }
 }

@@ -1,0 +1,94 @@
+<!-- Contact Section -->
+<section id="contact" class="contact section">
+
+    <div class="mb-5">
+        <iframe style="width: 100%; height: 400px;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9505679562626!2d-74.0824755261355!3d4.602875295371792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99796e068f31%3A0x5ff9bbe07ad2284f!2sQuimicos%20Nueva%20Era!5e0!3m2!1ses!2sco!4v1761177231272!5m2!1ses!2sco"
+            frameborder="0" allowfullscreen></iframe>
+    </div><!-- End Google Maps -->
+
+    <div class="container">
+
+        <div class="row gy-5 gx-lg-5">
+
+            <div class="col-lg-4">
+
+                <div class="info">
+                    <h3>Contáctanos</h3>
+                    <p>Nos encontramos en la ciudad de Bogotá y contamos con envios nacionales, 
+                        acercate a nosotros por los canales de atención.</p>
+
+                    <div class="info-item d-flex">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h4>Ubicación:</h4>
+                            <p>{{dir()}}</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                            <h4>Email:</h4>
+                            <p>{{email()}}
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex">
+                            <i class="bi bi-phone flex-shrink-0"></i>
+                            <div>
+                                <h4>Llámanos o escríbenos:</h4>
+
+                                @for (tel of tel(); track tel)
+                                {
+                                <li>
+                                        +57 {{tel}}
+
+                                </li>}
+                            </div>
+                        </div><!-- End Info Item -->
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8">
+                    <form action="forms/contact.php" method="post" role="form"
+                        class="php-email-form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name"
+                                    class="form-control" id="name"
+                                    placeholder="Tu nombre" required>
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="email" class="form-control"
+                                    name="email" id="email"
+                                    placeholder="Tu Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control"
+                                name="subject" id="subject"
+                                placeholder="Asunto" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="message"
+                                placeholder="Mensaje" required></textarea>
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been
+                                sent. Thank you!</div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send
+                                Message</button></div>
+                    </form>
+                </div><!-- End Contact Form -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Contact Section -->
