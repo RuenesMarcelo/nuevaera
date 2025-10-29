@@ -28,8 +28,6 @@ export class HeaderComponent {
   constructor(public authService: AuthService) {
   }
 
-
-
   ngOnInit(): void {
     this.getCategories();
 
@@ -72,9 +70,4 @@ export class HeaderComponent {
         }
       })
   }
-
-
-
-
-
 }
