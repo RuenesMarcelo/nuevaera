@@ -2268,3 +2268,29 @@ html {
   scroll-padding-top: 64px; /* ajusta según el alto de tu header */
 }
 
+/*Color azulito que escogí*/
+
+.modal-header {
+  background: linear-gradient(
+    135deg,
+    rgba(7, 136, 168, 0.95),
+    rgba(7, 136, 168, 0.75)
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  border-bottom: none;
+  border-radius: 12px; /* ✅ ahora en todo el rectángulo */
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(7, 136, 168, 0.4);
+}
+
+.modal-header .modal-title {
+  font-weight: 700; /* Más negrilla */
+  font-size: 1.45rem; /* Un poco más grande */
+  letter-spacing: .6px;
+  text-shadow: 0px 1px 3px rgba(0,0,0,0.35);
+}
+
+
+

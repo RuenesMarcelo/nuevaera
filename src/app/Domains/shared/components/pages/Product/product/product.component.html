@@ -16,10 +16,38 @@
         <div class="post-content d-flex flex-column">
 
             <h3 class="post-title">{{product.nombre}}</h3>
-            <a href="blog-details.html"
-                class="readmore stretched-link"><span>Read More</span><i
+            <a
+                class="readmore stretched-link"
+                (click)="openProductModal(product)"><span>Read More</span><i
                     class="bi bi-arrow-right"></i></a>
 
+        </div>
+
+        <!-- Modal Información Producto -->
+        <div #productModal class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ selectedProduct?.nombre
+                            }}</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img [src]="selectedProduct?.imagen"
+                            class="img-fluid mb-3">
+                        <p><strong>Precio:</strong> ${{ selectedProduct?.precio
+                            }}</p>
+                        <p><strong>Categoría:</strong> {{
+                            selectedProduct?.categoria?.nombre }}</p>
+                        <p><strong>Descripción:</strong></p>
+                        <p>{{ selectedProduct?.descripcion }}</p>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
     </article>
