@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './Domains/shared/components/layout/layout.component';
+import { AuthGuard } from './Domains/shared/guards/auth.guard';
 
 
 
 export const routes: Routes = [
     {
 
-        
+
         path: '',
         component: LayoutComponent,
 
@@ -21,17 +22,24 @@ export const routes: Routes = [
                 path: 'log',
                 loadComponent: () =>
                     import('./Domains/shared/components/auth/auth.component')
-                        .then(m => m.AuthComponent)
+                        .then(m => m.AuthComponent),
+
+            },
+            {
+                path: 'perfil',
+                loadComponent: () => import('./Domains/shared/components/header/perfil/perfil.component')
+                .then(m => m.PerfilComponent),
             },
             {
                 path: 'list',
                 loadComponent: () =>
                     import('./Domains/shared/components/pages/Product/list/list.component')
-                        .then(m => m.ListComponent)
+                        .then(m => m.ListComponent),
+                        //canActivate: [AuthGuard]
             }
 
         ],
-        
+
     }
 ];
 
