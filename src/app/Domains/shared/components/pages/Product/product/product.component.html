@@ -44,6 +44,8 @@
                             selectedProduct?.categoria?.nombre }}</p>
                         <p><strong>Descripción:</strong></p>
                         <p>{{ selectedProduct?.descripcion }}</p>
+                        <button *ngIf="authService.isAdmin()" type="button">Editar producto</button>
+
                     </div>
 
                 </div>

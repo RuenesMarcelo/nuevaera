@@ -26,8 +26,7 @@ export class AuthComponent {
   onSubmit(): void {
     this.authService.login(this.correo, this.contrasena).subscribe({
       next: (auth: Auth) => {
-        // Aquí podrías guardar el user en el localStorage o un authService
-        console.log('Usuario autenticado:', auth);
+        // Aquí podrías guardar el user en el localStorage o un authService: console.log('Usuario autenticado:', auth);
         this.router.navigate(['/']); // Cambia por la ruta que desees
         alert('¡Bienvenido! Has iniciado sesión con éxito.');
       },

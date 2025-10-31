@@ -10,14 +10,13 @@
             class="form-control h-100"
             placeholder="Ingresa el producto que buscas"
             [(ngModel)]="searchTerm"
-            (input)="onSearchChange()"
-          />
+            (input)="onSearchChange()" />
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<button *ngIf="authService.isAdmin()" type="button">+</button>
 
 <section id="blog-posts-2" class="blog-posts-2 section">
   <div class="container">

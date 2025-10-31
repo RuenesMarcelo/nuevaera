@@ -6,11 +6,13 @@ import { ProductService } from '../../../../services/product.service';
 import { CategoriesService } from '../../../../services/categories.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent, FormsModule],
+  imports: [ProductComponent, FormsModule, CommonModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -25,6 +27,8 @@ export class ListComponent {
   filteredProducts = signal<Product[]>([]);
   searchTerm = ''; // 🟢 texto de búsqueda
 
+  
+  constructor(public authService: AuthService) {}
 
 
   ngOnInit(): void {
