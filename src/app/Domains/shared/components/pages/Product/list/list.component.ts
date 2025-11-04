@@ -8,11 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../../services/auth.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent, FormsModule, CommonModule],
+  imports: [ProductComponent, FormsModule, CommonModule, RouterLink],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })

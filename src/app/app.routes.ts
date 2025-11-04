@@ -36,6 +36,18 @@ export const routes: Routes = [
                     import('./Domains/shared/components/pages/Product/list/list.component')
                         .then(m => m.ListComponent),
                         //canActivate: [AuthGuard]
+            },
+            {
+                path: 'add',
+                loadComponent: () =>
+                    import('./Domains/shared/components/pages/Product/product-form/product-form.component')
+                        .then(m => m.ProductFormComponent),
+            },
+            {
+                path: 'update/:id_producto',
+                loadComponent: () =>
+                    import('./Domains/shared/components/pages/Product/product-form/product-form.component')
+                        .then(m => m.ProductFormComponent),
             }
 
         ],

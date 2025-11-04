@@ -1,0 +1,51 @@
+.nuevo-producto-fondo {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("https://www.amoquimicos.com/adminpaxzu/images/website/2025/abril/2-reactivos-quimicos.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+/* 🔥 FIX: aseguramos que el overlay nunca bloquee clics ni inputs */
+.overlay-azul {
+    position: fixed;
+    /* antes era absolute */
+    inset: 0;
+    background-color: rgba(0, 0, 139, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: -1;
+    /* lo mandamos al fondo del todo */
+    pointer-events: none;
+    /* no intercepta clics */
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
