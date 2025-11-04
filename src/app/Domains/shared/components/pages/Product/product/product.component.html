@@ -6,20 +6,17 @@
             <img src="{{product.imagen}}" class="img-fluid uniform-img">
         </div>
 
-        <div class="meta d-flex align-items-end">
-            <span class="post-date"><span>${{product.precio}}</span></span>
-            <div class="d-flex align-items-center">
-                <span class="ps-2">{{product.categoria.nombre}}</span>
-            </div>
-        </div>
-
         <div class="post-content d-flex flex-column">
 
             <h3 class="post-title">{{product.nombre}}</h3>
+
+            <div class="d-flex align-items-center">
+
+            </div>
             <a
                 class="readmore stretched-link"
-                (click)="openProductModal(product)"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
+                (click)="openProductModal(product)"><span
+                    class="ps-2">{{product.categoria.nombre}}</span><i></i></a>
 
         </div>
 
@@ -29,8 +26,8 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title">{{ selectedProduct?.nombre
-                            }}</h5>
+                        <h5 class="modal-title">{{
+                            selectedProduct?.nombre}}</h5>
                         <button type="button" class="btn-close"
                             data-bs-dismiss="modal"></button>
                     </div>
@@ -38,13 +35,28 @@
                     <div class="modal-body">
                         <img [src]="selectedProduct?.imagen"
                             class="img-fluid mb-3">
-                        <p><strong>Precio:</strong> ${{ selectedProduct?.precio
-                            }}</p>
                         <p><strong>Categoría:</strong> {{
                             selectedProduct?.categoria?.nombre }}</p>
-                        <p><strong>Descripción:</strong></p>
-                        <p>{{ selectedProduct?.descripcion }}</p>
-                        <button *ngIf="authService.isAdmin()" type="button">Editar producto</button>
+                        <p><strong>Descripción:</strong>
+                            {{ selectedProduct?.id_producto }}</p>
+
+                        <button
+                            *ngIf="authService.isAdmin()"
+                            type="button"
+                            class="btn btn-primary"
+                            data-bs-dismiss="modal"
+                            [routerLink]="['/update', selectedProduct?.id_producto]">
+                            Editar producto
+                        </button>
+
+                        <button
+                            *ngIf="authService.isAdmin()"
+                            type="button"
+                            class="btn btn-outline-danger delete-btn "
+                            (click)="eliminarProducto()"
+                            title="Eliminar producto">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
 
                     </div>
 

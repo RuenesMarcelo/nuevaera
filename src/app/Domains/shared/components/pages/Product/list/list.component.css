@@ -1,3 +1,45 @@
 .bg-light-blue {
   background-color: #0788a8; /* azul clarito */
 }
+
+/* Contenedor que alinea el botón a la derecha */
+.right-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea el botón a la derecha */
+  padding: 16px;
+  background: #f7f7f7; /* Fondo claro opcional para contraste */
+}
+
+/* Estilos del botón */
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0788a8;        /* Negro */
+  color: #fff;             /* Símbolo + blanco */
+  border: none;
+  padding: 10px 18px;      /* Proporción rectangular */
+  font-size: 20px;         /* Tamaño del + */
+  line-height: 1;
+  width: 64px;
+  height: 40px;
+  border-radius: 6px;      /* Bordes ligeramente redondeados */
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  user-select: none;
+}
+
+/* Efectos de interacción */
+.add-btn:hover {
+  transform: translateY(-2px);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.add-btn:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
