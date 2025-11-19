@@ -9,7 +9,7 @@ import { Category } from '../models/category';
 })
 export class CategoriesService {
 
-  private apiUrl = 'http://localhost:8081/api/categoria'; // ajusta si es necesario
+  private apiUrl = 'https://back-nuevaera-productos.onrender.com/api/categoria';
 
   constructor(private http: HttpClient) { }
 

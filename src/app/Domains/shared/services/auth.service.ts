@@ -47,6 +47,7 @@ export class AuthService {
 
 
         this.itsAuthenticated.set(true);
+        this.scheduleTokenCheck(); // reprograma al hacer login
       })
     );
   }
@@ -119,6 +120,27 @@ export class AuthService {
     } catch (error) {
       console.error('Error al decodificar el token', error);
       return true;
+    }
+  }
+
+
+  // Este método programa un logout cuando el token expire
+  private scheduleTokenCheck() {
+    const token = this.getToken();
+    if (!token) return;
+
+    const decoded: any = jwtDecode(token);
+    if (!decoded.exp) return;
+
+    const now = Math.floor(Date.now() / 1000);
+    const timeLeft = decoded.exp - now;
+
+    if (timeLeft <= 0) {
+      this.logout();
+    } else {
+      setTimeout(() => {
+        this.logout();
+      }, timeLeft * 1000); // en milisegundos
     }
   }
 

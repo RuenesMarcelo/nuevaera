@@ -38,4 +38,9 @@ export class AuthComponent {
     });
   }
 
+  logout() {
+  localStorage.removeItem('token');
+  // también limpiar variables de sesión
+}
+
 }

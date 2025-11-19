@@ -33,7 +33,7 @@
             required>
             <option value>Seleccione categoría</option>
             @for (category of categories(); track category) {
-            <option [ngValue]="category">{{ category.nombre }}</option>
+            <option [ngValue]="category">{{category.idCategoria }}, {{category.nombre }} </option>
             }
           </select>
         </div>

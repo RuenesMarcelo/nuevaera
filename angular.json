@@ -28,16 +28,14 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
               "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
-              "src/assets/vendor/aos/aos.css",
               "src/assets/vendor/swiper/swiper-bundle.min.css",
               "src/assets/vendor/glightbox/css/glightbox.min.css",
               "node_modules/aos/dist/aos.css",
-              "src/styles.css" 
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "node_modules/aos/dist/aos.js"
-
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -47,6 +45,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -103,11 +107,10 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
               "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
-              "src/assets/vendor/aos/aos.css",
               "src/assets/vendor/swiper/swiper-bundle.min.css",
               "src/assets/vendor/glightbox/css/glightbox.min.css",
               "node_modules/aos/dist/aos.css",
-              "src/styles.css"              
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",

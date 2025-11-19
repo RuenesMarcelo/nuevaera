@@ -48,7 +48,7 @@
           <div>
             <li *ngIf="!authService.itsAuthenticated()" class="nav-item">
               <a routerLink="/log" routerLinkActive="underline"
-                class="d-block text-decoration-underline-hover">
+                class="d-block text-decoration-underline-hover bi bi-person">
                 Inicia sesión
               </a>
             </li>
@@ -56,21 +56,23 @@
           <div>
             <li *ngIf="authService.itsAuthenticated()" class="dropdown">
               <a routerLinkActive="underline">
-                <span>{{authService.getUsernameFromToken()}}</span>
+                <i class="bi bi-person" style="font-size: 1.2rem;"></i>
+                <!-- icono más grande -->
+                <span>{{ authService.getUsernameFromToken() }}</span>
                 <i class="bi bi-chevron-down"
                   (click)="toggleDropdown($event)"></i>
               </a>
               <ul class="dropdown-menu-custom">
                 <a routerLink="/perfil">perfil</a>
-                <a>Productos</a>
-                <a>Usuarios</a><li role="none">
+                <a>Usuarios</a>
+                <li role="none">
                   <a
                     type="button"
                     role="menuitem"
-                    class="w-full text-left px-4 py-2 hover:bg-gray-100"
+                    class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
                     (click)="handleLogout($event)">
                     Cerrar sesión
-                </a>
+                  </a>
                 </li>
               </ul>
             </li>
