@@ -1,95 +1,9 @@
-/* login.css */
-* { box-sizing: border-box; }
-
-body, html { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-
-.hero {
+.login-section {
+  position: relative;
   min-height: 100vh;
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-/* overlay para contraste */
-.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-
-/* contenedor centrado */
-.container {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  max-width: 420px;
-  padding: 28px;
-  text-align: center;
-}
-
-/* marca */
-.brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:18px; color: #fff; }
-.brand img { width:40px; height:40px; }
-.brand span { font-weight:600; font-size:20px; color:#fff; }
-
-/* tarjeta */
-.card {
-  background: rgba(255,255,255,0.06); /* translúcido */
-  backdrop-filter: blur(6px);
-  border-radius: 14px;
-  padding: 28px;
-  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-  color: #fff;
-}
-
-/* título */
-.card h1 { margin: 0 0 12px; font-size: 22px; font-weight:700; color: #fff; }
-
-/* formulario */
-.form { display:flex; flex-direction:column; gap:12px; margin-top: 6px; }
-
-/* labels y inputs */
-.form label { text-align:left; font-size:13px; color: #E5E7EB; }
-.form input[type="email"],
-.form input[type="password"] {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  background: #f3f4f6;
-  color: #111827;
-  font-size: 14px;
-}
-
-/* fila entre elementos */
-.row-between { display:flex; justify-content:space-between; align-items:center; gap:10px; }
-
-/* enlaces */
-.link { color: #78c6d6; text-decoration: none; font-weight:500; }
-.link:hover { text-decoration: underline; }
-
-/* botón */
-.primary {
-  width:100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 0;
-  background: #0788a8;
-  color: #fff;
-  font-weight:700;
-  font-size:15px;
-  cursor: pointer;
-}
-.primary:hover { background:#066b86; }
-
-/* nota */
-.note { margin: 6px 0 0; font-size: 13px; color: #d1d5db; }
-
-/* responsive */
-@media (max-width: 480px) {
-  .container { padding: 18px; max-width: 92%; }
-  .card { padding: 18px; border-radius: 12px; }
 }

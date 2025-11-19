@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  private apiUrl = 'http://localhost:8081/api/product'; // ajusta si es necesario
+ // private apiUrl = 'http://localhost:8081/api/product'; // ajusta si es necesario
+  private apiUrl = 'https://back-nuevaera-productos.onrender.com/api/product';
 
   itsautenticated = signal<boolean>(false);
 

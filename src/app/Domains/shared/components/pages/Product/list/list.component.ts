@@ -1,4 +1,4 @@
-import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
+import { Component, computed, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { ProductComponent } from "../product/product.component";
 import { Product } from '../../../../models/product';
 import { Category } from '../../../../models/category';
@@ -29,7 +29,13 @@ export class ListComponent {
   searchTerm = ''; // 🟢 texto de búsqueda
 
   
-  constructor(public authService: AuthService) {}
+  // ✅ PAGINACIÓN
+  page = signal<number>(1);
+  pageSize = 28;
+
+
+
+  constructor(public authService: AuthService) { }
 
 
   ngOnInit(): void {
@@ -45,6 +51,22 @@ export class ListComponent {
     });
   }
 
+   // ✅ getter para obtener productos paginados
+  paginatedProducts = computed(() => {
+    const start = (this.page() - 1) * this.pageSize;
+    return this.filteredProducts().slice(start, start + this.pageSize);
+  });
+
+  // ✅ total páginas
+  totalPages = computed(() => {
+    return Math.ceil(this.filteredProducts().length / this.pageSize);
+  });
+
+  goToPage(p: number) {
+    if (p < 1 || p > this.totalPages()) return;
+    this.page.set(p);
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
 
 
@@ -52,14 +74,14 @@ export class ListComponent {
 
 
   private getProductsByCategory(categoryId: string) {
-  this.productService.getProductsByCategory(categoryId).subscribe({
-    next: (products) => {
-      this.products.set(products);
-      this.applyFilters(); // 🟢 Aplica el filtro al cargar productos
-    },
-    error: (err) => console.error(err)
-  });
-}
+    this.productService.getProductsByCategory(categoryId).subscribe({
+      next: (products) => {
+        this.products.set(products);
+        this.applyFilters(); // 🟢 Aplica el filtro al cargar productos
+      },
+      error: (err) => console.error(err)
+    });
+  }
 
   private getAllProducts() {
     this.productService.getAll().subscribe({
@@ -77,17 +99,23 @@ export class ListComponent {
 
 
   private applyFilters() {
-    const term = this.searchTerm.toLowerCase().trim();
+  const term = this.searchTerm.toLowerCase().trim();
 
-    let filtered = this.products();
+  let filtered = this.products();
 
-    // Si hay texto, filtramos por nombre
-    if (term) {
-      filtered = filtered.filter(p =>
-        p.nombre.toLowerCase().includes(term)
-      );
-    }
+  if (term) {
+    filtered = filtered.filter(p =>
+      p.nombre.toLowerCase().includes(term)
+    );
+  }
 
-    this.filteredProducts.set(filtered);
-    }
+  this.filteredProducts.set(filtered);
+
+  // ✅ volver a página 1 cuando cambia filtro
+  this.page.set(1);
+}
+
+
+
+  
 }
