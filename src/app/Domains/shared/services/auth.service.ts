@@ -11,7 +11,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
 
-  private readonly apiUrl = 'http://localhost:8080/api/auth/login'; // constante de la clase
+  private readonly apiUrl = 'https://backend-springboot-nuevaera.onrender.com/api/auth/login'; // constante de la clase
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
   username = signal<string | null>(null);
