@@ -48,7 +48,7 @@ export class ProductFormComponent implements OnInit {
 
     this.getCategories();
     this.form = this.fb.group({
-      id: ['', Validators.required],
+      id_producto: ['', Validators.required],
       nombre: ['', Validators.required],
       categoria: ['', Validators.required],
       imagen: ['', Validators.required],
@@ -65,7 +65,7 @@ export class ProductFormComponent implements OnInit {
       this.productService.getById(this.idProducto).subscribe(producto => {
         this.form.patchValue({
           //Los siguientes atributos están definidos en el ngOnInit y en el html en el formcontrolname
-          id: producto.id_producto,
+          id_producto: producto.id_producto,
           nombre: producto.nombre,
           categoria: producto.categoria,
           imagen: producto.imagen
@@ -106,6 +106,16 @@ export class ProductFormComponent implements OnInit {
           console.error('Error al modificar producto:', err);
         }
       });
+    }else if (!this.modoEdicion){
+      this.productService.create(data).subscribe({
+        next: () => {
+          alert('Producto agregado correctamente');
+          this.router.navigate(['/list']);
+        },
+        error: err => {
+          console.error('Error al agregar producto:', err);
+        }
+      })
     }
   }
 

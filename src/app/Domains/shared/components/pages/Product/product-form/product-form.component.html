@@ -7,12 +7,14 @@
     <div class="form-container">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <input
+          <!-- El campo  formControlName representa el ID que se envía al backend como 'id_producto' 
+           y debe llamarse exactamente igual al campo en el backend(JPA en springboot) -->
+        <input
             type="text"
             class="form-control"
             placeholder="ID del producto"
-            formControlName="id"
-            (dblclick)="activarCampo('id')"
+            formControlName="id_producto" 
+            (dblclick)="activarCampo('id_producto')"
             required />
         </div>
         <div class="mb-3">
