@@ -13,4 +13,12 @@ import { ContactComponent } from "../shared/components/pages/contact/contact.com
 
 export class PrincipalComponent {
 
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+
 }

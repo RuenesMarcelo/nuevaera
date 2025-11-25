@@ -19,10 +19,12 @@
         <ul>
           <li>
             <a routerLink="/" routerLinkActive="underline">Inicio</a></li>
-          <a [routerLink]="['/']" fragment="services"
-            routerLinkActive="underline">
-            Nuestros servicios
-          </a>
+          <li><a [routerLink]="['/']" fragment="services"
+              routerLinkActive="underline">
+              Nuestros servicios
+            </a>
+
+          </li>
           <li class="dropdown">
             <a routerLink="/list" routerLinkActive="underline">
               <span>Que estas buscando?</span>
@@ -30,6 +32,7 @@
                 (click)="toggleDropdown($event)"></i>
             </a>
             <ul class="dropdown-menu-custom">
+              <a [routerLink]="['/list']"> Todos los productos</a>
               @for (category of categories(); track category) {
               <a [routerLink]="['/list']"
                 [queryParams]="{ category_id: category.idCategoria }">
@@ -49,7 +52,6 @@
             <li *ngIf="!authService.itsAuthenticated()" class="nav-item">
               <a routerLink="/log" routerLinkActive="underline"
                 class="d-block text-decoration-underline-hover bi bi-person">
-                Inicia sesión
               </a>
             </li>
           </div>
