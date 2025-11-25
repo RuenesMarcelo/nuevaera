@@ -1,0 +1,33 @@
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #0788a8;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transform: rotate(45deg); /* Flecha inclinada a la derecha */
+  
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.scroll-top-btn:hover {
+  background-color: #0059c9;
+  transform: rotate(45deg) scale(1.1);
+}
+
+
+

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './Domains/shared/components/layout/layout.component';
+import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { AuthGuard } from './Domains/shared/guards/auth.guard';
 
 
@@ -28,14 +29,14 @@ export const routes: Routes = [
             {
                 path: 'perfil',
                 loadComponent: () => import('./Domains/shared/components/header/perfil/perfil.component')
-                .then(m => m.PerfilComponent),
+                    .then(m => m.PerfilComponent),
             },
             {
                 path: 'list',
                 loadComponent: () =>
                     import('./Domains/shared/components/pages/Product/list/list.component')
                         .then(m => m.ListComponent),
-                        //canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             {
                 path: 'add',
@@ -48,7 +49,9 @@ export const routes: Routes = [
                 loadComponent: () =>
                     import('./Domains/shared/components/pages/Product/product-form/product-form.component')
                         .then(m => m.ProductFormComponent),
-            }
+            },
+            { path: '**', component: NotFoundComponentComponent }
+
 
         ],
 

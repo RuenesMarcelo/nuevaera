@@ -26,9 +26,10 @@ export class ListComponent {
   private route = inject(ActivatedRoute);
   private categoryService = inject(CategoriesService);
   filteredProducts = signal<Product[]>([]);
+  categoryName = signal<String>("Todos los productos");
   searchTerm = ''; // 🟢 texto de búsqueda
 
-  
+
   // ✅ PAGINACIÓN
   page = signal<number>(1);
   pageSize = 28;
@@ -47,11 +48,12 @@ export class ListComponent {
         this.getProductsByCategory(categoryId);
       } else {
         this.getAllProducts();
+        this.categoryName.set('Todos los Productos');
       }
     });
   }
 
-   // ✅ getter para obtener productos paginados
+  // ✅ getter para obtener productos paginados
   paginatedProducts = computed(() => {
     const start = (this.page() - 1) * this.pageSize;
     return this.filteredProducts().slice(start, start + this.pageSize);
@@ -61,11 +63,19 @@ export class ListComponent {
   totalPages = computed(() => {
     return Math.ceil(this.filteredProducts().length / this.pageSize);
   });
-
+  
   goToPage(p: number) {
     if (p < 1 || p > this.totalPages()) return;
+
     this.page.set(p);
+
+    // 🔥 Subir automáticamente al inicio de la página
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'  // animación suave
+    });
   }
+
 
   ngOnChanges(changes: SimpleChanges): void {
 
@@ -80,6 +90,11 @@ export class ListComponent {
         this.applyFilters(); // 🟢 Aplica el filtro al cargar productos
       },
       error: (err) => console.error(err)
+    });
+    this.categoryService.getById(parseInt(categoryId, 10)).subscribe({
+      next: (categories) => {
+        this.categoryName.set(categories.nombre);
+      }
     });
   }
 
@@ -99,23 +114,23 @@ export class ListComponent {
 
 
   private applyFilters() {
-  const term = this.searchTerm.toLowerCase().trim();
+    const term = this.searchTerm.toLowerCase().trim();
 
-  let filtered = this.products();
+    let filtered = this.products();
 
-  if (term) {
-    filtered = filtered.filter(p =>
-      p.nombre.toLowerCase().includes(term)
-    );
+    if (term) {
+      filtered = filtered.filter(p =>
+        p.nombre.toLowerCase().includes(term)
+      );
+    }
+
+    this.filteredProducts.set(filtered);
+
+    // ✅ volver a página 1 cuando cambia filtro
+    this.page.set(1);
   }
 
-  this.filteredProducts.set(filtered);
-
-  // ✅ volver a página 1 cuando cambia filtro
-  this.page.set(1);
-}
 
 
 
-  
 }
