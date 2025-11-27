@@ -27,11 +27,11 @@ export class CardServiceComponent {
   },
   {
     titulo: 'Quimicos y reactivos',
-    descripcion: 'Contamos con la venta responsable de materiales químicos y reactivos bajo los requerimientos legales y con el conocimiento necesário para dar acompañamiento a nuestrios clientes sobre sus usos y permisos.',
+    descripcion: 'Contamos con la venta responsable de materiales químicos y reactivos bajo los requerimientos legales y con el conocimiento necesario para dar acompañamiento a nuestrios clientes sobre sus usos y permisos.',
     foto: "assets/icons/Reactivos.png"
   }, {
     titulo: 'Biologia',
-    descripcion: 'Productos para la manipulación de material biológico en prácticas y laboratorios que se emplean en los campos de química y de Biologia. No pases por alto las precauciones y las buenas prácticas en tus laboratorios de anatomia y biología.',
+    descripcion: 'Productos para la manipulación de material biológico en prácticas y laboratorios que se emplean en los campos de química y de Biologia. No pases por alto las precauciones y las buenas prácticas en tus laboratorios de anatomía y biología.',
     foto: 'assets/icons/Biologia.png'
   },
   {
@@ -41,7 +41,7 @@ export class CardServiceComponent {
   },
   {
     titulo: 'Productos agrícolas',
-    descripcion: 'Pregunta por inmunizantes, perticidas, fertilizantes i demás insumos relacionados con agronomia, realizamos envios a cualquier parte del pais y damos acompañamiento.',
+    descripcion: 'Pregunta por inmunizantes, perticidas, fertilizantes y demás insumos relacionados con agronomía, realizamos envios a cualquier parte del pais y damos acompañamiento.',
     foto: 'assets/icons/Prod_agricola.png'
   },
   {
@@ -51,7 +51,7 @@ export class CardServiceComponent {
   },
   {
     titulo: 'Asesorias',
-    descripcion: 'Si necesitas acompañamiento y orientación en la elaboración de algun producto quimico o de practica de laboratorio puedes escribirnos y comentarnos cual es tu necesidad para poder echarte una mano!.',
+    descripcion: 'Si necesitas acompañamiento y orientación en la elaboración de algun producto químico o de practica de laboratorio puedes escribirnos y comentarnos cual es tu necesidad para poder echarte una mano!.',
     foto: 'assets/icons/Asesorias.png'
   }
 

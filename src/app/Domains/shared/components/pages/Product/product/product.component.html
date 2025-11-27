@@ -2,24 +2,21 @@
 <div class="col-lg-11">
     <article class="position-relative">
 
-        <div class="post-img position-relative overflow-hidden">
-            <img src="{{product.imagen}}" class="img-fluid uniform-img">
-        </div>
-
-        <div class="post-content d-flex flex-column">
-
-            <h3 class="post-title">{{product.nombre}}</h3>
-
-            <div class="d-flex align-items-center">
-
+        <div class="product-card" >
+            <!-- Imagen del producto -->
+            <div class="post-img" (click)="openProductModal(product)">
+                <img src="{{product.imagen}}" class="img-fluid uniform-img">
             </div>
-            <a
-                class="readmore stretched-link"
-                (click)="openProductModal(product)"><span
-                    class="ps-2">{{product.categoria.nombre}}</span><i></i></a>
 
+            <!-- Contenido del producto -->
+            <div class="post-content">
+                <h3 class="post-title" (click)="openProductModal(product)">{{product.nombre}}</h3>
+
+                <a class="readmore" >
+                    <span>{{product.categoria.nombre}}</span>
+                </a>
+            </div>
         </div>
-
         <!-- Modal Información Producto -->
         <div #productModal class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-lg modal-dialog-centered">
