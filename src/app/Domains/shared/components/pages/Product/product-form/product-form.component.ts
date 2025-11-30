@@ -31,11 +31,11 @@ export class ProductFormComponent implements OnInit {
   campoActivo: string | null = null;
 
   camposBloqueados = {
-  id: true,
-  nombre: true,
-  categoria: true,
-  imagen: true
-};
+    id: true,
+    nombre: true,
+    categoria: true,
+    imagen: true
+  };
 
   constructor(
     private fb: FormBuilder,
@@ -52,6 +52,8 @@ export class ProductFormComponent implements OnInit {
       nombre: ['', Validators.required],
       categoria: ['', Validators.required],
       imagen: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      presentacion: ['', Validators.required],
     });
 
     // Detectar si estamos editando
@@ -68,7 +70,9 @@ export class ProductFormComponent implements OnInit {
           id_producto: producto.id_producto,
           nombre: producto.nombre,
           categoria: producto.categoria,
-          imagen: producto.imagen
+          imagen: producto.imagen,
+          descripcion: producto.descripcion,
+          presentacion: producto.presentacion
         });
       });
     }
@@ -106,7 +110,7 @@ export class ProductFormComponent implements OnInit {
           console.error('Error al modificar producto:', err);
         }
       });
-    }else if (!this.modoEdicion){
+    } else if (!this.modoEdicion) {
       this.productService.create(data).subscribe({
         next: () => {
           alert('Producto agregado correctamente');
@@ -137,7 +141,7 @@ export class ProductFormComponent implements OnInit {
     this.campoActivo = campo;
   }
 
-  
+
 
 
 }

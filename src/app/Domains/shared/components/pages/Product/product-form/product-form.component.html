@@ -6,64 +6,81 @@
 
     <div class="form-container">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <!-- El campo  formControlName representa el ID que se envía al backend como 'id_producto' 
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="mb-3">
+              <!-- El campo  formControlName representa el ID que se envía al backend como 'id_producto' 
            y debe llamarse exactamente igual al campo en el backend(JPA en springboot) -->
-        <input
-            type="text"
-            class="form-control"
-            placeholder="ID del producto"
-            formControlName="id_producto" 
-            (dblclick)="activarCampo('id_producto')"
-            required />
-        </div>
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Nombre del producto"
-            formControlName="nombre"
-            (dblclick)="activarCampo('nombre')"
-            required />
-        </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="ID del producto"
+                formControlName="id_producto"
+                (dblclick)="activarCampo('id_producto')"
+                required />
+            </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre del producto"
+                formControlName="nombre"
+                (dblclick)="activarCampo('nombre')"
+                required />
+            </div>
 
-        <div class="mb-3">
-          <select class="form-select"
-            formControlName="categoria"
-            [compareWith]="compararCategorias"
-            (dblclick)="activarCampo('categoria')"
-            required>
-            <option value>Seleccione categoría</option>
-            @for (category of categories(); track category) {
-            <option [ngValue]="category">{{category.idCategoria }}, {{category.nombre }} </option>
-            }
-          </select>
-        </div>
+            <div class="mb-3">
+              <select class="form-select"
+                formControlName="categoria"
+                [compareWith]="compararCategorias"
+                (dblclick)="activarCampo('categoria')"
+                required>
+                <option value>Seleccione categoría</option>
+                @for (category of categories(); track category) {
+                <option [ngValue]="category">{{category.idCategoria }},
+                  {{category.nombre }} </option>
+                }
+              </select>
+            </div>
 
-        <div class="mb-3">
-          <input
-            type="url"
-            class="form-control"
-            placeholder="URL de la imagen"
-            formControlName="imagen"
-            (dblclick)="activarCampo('imagen')"
-            required />
-        </div>
+            <div class="mb-3">
+              <input
+                type="url"
+                class="form-control"
+                placeholder="URL de la imagen"
+                formControlName="imagen"
+                (dblclick)="activarCampo('imagen')"
+                required />
+            </div>
 
-        <!--
-        <div class="mb-3">
-          <textarea
-            class="form-control"
-            placeholder="Descripción"
-            formControlName="descripcion"
-          ></textarea>
-        </div>
-      -->
+          </div>
+          <div class="col-md-7">
 
-        <button type="submit" class="btn btn-primary w-100"
-          (ngSubmit)="onSubmit()">
-          {{ textoBoton }}
-        </button>
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                placeholder="Descripción"
+                formControlName="descripcion"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                placeholder="Presentación"
+                formControlName="presentacion"></textarea>
+            </div>
+
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary"
+              (ngSubmit)="onSubmit()">
+              {{ textoBoton }}
+            </button>
+
+          </div>
+        </div>
       </form>
     </div>
   </div>

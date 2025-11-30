@@ -4,4 +4,6 @@ export interface Product{
     nombre: String;
     categoria: Category;
     imagen: String;
+    descripcion: String;
+    presentacion: String;
 }
