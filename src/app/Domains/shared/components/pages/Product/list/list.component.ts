@@ -131,6 +131,33 @@ export class ListComponent {
   }
 
 
+  //paginación 
+
+  visiblePages(): number[] {
+  const current = this.page();          // página actual
+  const total = this.totalPages();      // total de páginas
+  const pages: number[] = [];
+
+  // inicio = página actual
+  let start = current;
+
+  // si estoy en las primeras páginas, arranco desde 1
+  if (current <= 2) {
+    start = 1;
+  }
+  // si estoy en las últimas páginas, ajusto para que no se pase
+  else if (current >= total - 1) {
+    start = total - 2;
+  }
+
+  // agrego hasta 3 páginas
+  for (let i = start; i <= Math.min(start + 2, total); i++) {
+    pages.push(i);
+  }
+
+  return pages;
+}
+
 
 
 }

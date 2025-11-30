@@ -2,7 +2,7 @@
 <div class="col-lg-11">
     <article class="position-relative">
 
-        <div class="product-card" >
+        <div class="product-card">
             <!-- Imagen del producto -->
             <div class="post-img" (click)="openProductModal(product)">
                 <img src="{{product.imagen}}" class="img-fluid uniform-img">
@@ -10,56 +10,73 @@
 
             <!-- Contenido del producto -->
             <div class="post-content">
-                <h3 class="post-title" (click)="openProductModal(product)">{{product.nombre}}</h3>
+                <h3 class="post-title"
+                    (click)="openProductModal(product)">{{product.nombre}}</h3>
 
-                <a class="readmore" >
+                <a class="readmore">
                     <span>{{product.categoria.nombre}}</span>
                 </a>
             </div>
+            <a> Ver mas ...</a>
         </div>
         <!-- Modal Información Producto -->
+
         <div #productModal class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title">{{
-                            selectedProduct?.nombre}}</h5>
+                        <h5 class="modal-title">{{ selectedProduct?.nombre
+                            }}</h5>
                         <button type="button" class="btn-close"
                             data-bs-dismiss="modal"></button>
                     </div>
 
                     <div class="modal-body">
-                        <img [src]="selectedProduct?.imagen"
-                            class="img-fluid mb-3">
-                        <p><strong>Categoría:</strong> {{
-                            selectedProduct?.categoria?.nombre }}</p>
-                        <p><strong>Descripción:</strong>
-                            {{ selectedProduct?.id_producto }}</p>
+                        <div class="row">
+                            <!-- Imagen a la izquierda -->
+                            <div class="col-md-5">
+                                <img [src]="selectedProduct?.imagen"
+                                    class="img-fluid mb-3">
 
-                        <button
-                            *ngIf="authService.isAdmin()"
-                            type="button"
-                            class="btn btn-primary"
-                            data-bs-dismiss="modal"
-                            [routerLink]="['/update', selectedProduct?.id_producto]">
-                            Editar producto
-                        </button>
+                                <!-- Contenedor para alinear los botones a la derecha -->
+                                <div class="d-flex justify-content-end gap-2">
 
-                        <button
-                            *ngIf="authService.isAdmin()"
-                            type="button"
-                            class="btn btn-outline-danger delete-btn "
-                            (click)="eliminarProducto()"
-                            title="Eliminar producto">
-                            <i class="bi bi-trash-fill"></i>
-                        </button>
+                                    <button
+                                        *ngIf="authService.isAdmin()"
+                                        type="button"
+                                        class="btn btn-primary"
+                                        data-bs-dismiss="modal"
+                                        [routerLink]="['/update', selectedProduct?.id_producto]">
+                                        Editar producto
+                                    </button>
 
+                                    <button
+                                        *ngIf="authService.isAdmin()"
+                                        type="button"
+                                        class="btn btn-outline-danger delete-btn"
+                                        (click)="eliminarProducto()"
+                                        title="Eliminar producto">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+
+                            <!-- Texto a la derecha -->
+                            <div class="col-md-7">
+                                <p><strong>Categoría:</strong> {{
+                                    selectedProduct?.categoria?.nombre }}</p>
+                                <p><strong>Descripción:</strong> {{
+                                    selectedProduct?.descripcion }}</p>
+                                <p><strong>Presentación:</strong> {{
+                                    selectedProduct?.presentacion }}</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </div>
         </div>
-
     </article>
 </div>

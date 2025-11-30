@@ -41,13 +41,13 @@
     ⟵
   </button>
 
-  <!-- botones 1,2,3... -->
-  @for (i of [].constructor(totalPages()); track i; let index = $index) {
-  <button
-    (click)="goToPage(index + 1)"
-    [class.active]="page() === index + 1">
-    {{ index + 1 }}
-  </button>
+  <!-- solo 3 botones -->
+  @for (p of visiblePages(); track p) {
+    <button
+      (click)="goToPage(p)"
+      [class.active]="page() === p">
+      {{ p }}
+    </button>
   }
 
   <!-- siguiente -->
