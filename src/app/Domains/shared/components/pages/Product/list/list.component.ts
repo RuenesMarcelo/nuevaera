@@ -41,9 +41,9 @@ export class ListComponent {
 
   ngOnInit(): void {
 
-    // 👇 aquí escuchamos los cambios del parámetro category_id
+    // 👇 aquí escuchamos los cambios del parámetro categoria
     this.route.queryParams.subscribe(params => {
-      const categoryId = params['category_id'];
+      const categoryId = params['categoria'];
       if (categoryId) {
         this.getProductsByCategory(categoryId);
       } else {
