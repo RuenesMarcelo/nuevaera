@@ -31,12 +31,13 @@
               <span>Que estas buscando?</span>
               <i class="bi bi-chevron-down"
                 (click)="toggleDropdown($event)"></i>
+                
             </a>
             <ul class="dropdown-menu-custom">
               <a [routerLink]="['/list']"> Todos los productos</a>
               @for (category of categories(); track category) {
               <a [routerLink]="['/list']"
-                [queryParams]="{ category_id: category.idCategoria }">
+                [queryParams]="{ categoria: category.idCategoria }">
                 {{ category.nombre }}
               </a>
               }
